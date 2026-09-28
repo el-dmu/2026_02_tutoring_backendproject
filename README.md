@@ -11,7 +11,7 @@
 | :--- | :--- | :--- |
 | **Mentor** | **최정규** | [**@JeongGyul**](https://github.com/JeongGyul) |
 | Mentee | 박다윗 | [@DavidPark04](https://github.com/DavidPark04) |
-| Mentee | 마성혁 | [@](https://github.com/) |
+| Mentee | 마성혁 | [@neonunu](https://github.com/neonunu) |
 | Mentee | 이채린 | [@Chae102](https://github.com/Chae102) |
 
 ---
