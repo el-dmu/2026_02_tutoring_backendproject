@@ -68,7 +68,7 @@
 
 ## 🛠 환경 설정 (Standard)
 - **IDE**: IntelliJ IDEA Ultimate
-- **JDK**: Java 17 버전 이상
-- **Framework**: Spring Boot 3.x (Embedded Tomcat)
+- **JDK**: Java 21 버전 이상
+- **Framework**: Spring Boot 4.x (Embedded Tomcat)
 - **Build Tool**: Gradle (Groovy DSL)
 - **DB**: MySQL 8.0
