@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: BackendProject
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/backend_project
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
