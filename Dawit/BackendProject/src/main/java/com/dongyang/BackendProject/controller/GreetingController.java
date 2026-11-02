@@ -1,5 +1,6 @@
 package com.dongyang.BackendProject.controller;
 
+import com.dongyang.BackendProject.dto.GreetingResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
     @GetMapping("/api/hello")
 
-    public String hello(
+    public GreetingResponse hello(
             @RequestParam(name = "name") String name
     ) {
-        return name + "님, 안녕하세요!";
+        return new GreetingResponse(name, name + "님, 안녕하세요!");
     }
 }
