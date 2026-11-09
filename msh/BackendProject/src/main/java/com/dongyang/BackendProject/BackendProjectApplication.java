@@ -1,4 +1,4 @@
-package com.dongyag.BackendProject;
+package com.dongyang.BackendProject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

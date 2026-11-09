@@ -1,4 +1,4 @@
-package com.dongyag.BackendProject;
+package com.dongyang.BackendProject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
