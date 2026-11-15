@@ -1,3 +1,18 @@
 spring:
   application:
     name: BackendProject
+
+  # 1. 데이터베이스 연결 정보 설정
+  datasource:
+    url: jdbc:mysql://localhost:3306/backend_project
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  # 2. 👍 jpa는 datasource와 동일한 레벨(앞으로 2칸 내어쓰기)에 위치해야 합니다.
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true # ❌ format_sql:true (콜론 뒤 공백 누락 수정)
