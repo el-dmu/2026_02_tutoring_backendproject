@@ -34,4 +34,14 @@ public class ProductService {
                 .map(ProductConverter::toResponse)
                 .toList();
     }
+
+    public ProductResponse findById(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "상품을 찾을 수 없습니다"
+                ));
+        return ProductConverter.toResponse(product);
+    }
+
 }
