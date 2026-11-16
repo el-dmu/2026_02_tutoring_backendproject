@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -25,5 +27,11 @@ public class ProductService {
         Product saved = productRepository.save(product);
 
         return ProductConverter.toResponse(saved);
+    }
+
+    public List<ProductResponse> findAll(){
+        return productRepository.findAll().stream()
+                .map(ProductConverter::toResponse)
+                .toList();
     }
 }
