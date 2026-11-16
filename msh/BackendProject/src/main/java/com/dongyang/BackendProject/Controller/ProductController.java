@@ -36,4 +36,10 @@ public class ProductController {
         ProductResponse response = productService.findById(id);
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductResponse>> search(@RequestParam("name") String name){
+        List<ProductResponse> responses = productService.search(name);
+        return ResponseEntity.ok(responses);
+    }
 }
