@@ -45,4 +45,18 @@ public class ProductService {
 
         return ProductConverter.toResponse(product);
     }
+
+    public List<ProductResponse> search(String name) {
+        if(name.isBlank()) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "검색어를 입력하세요."
+            );
+        }
+
+        return productRepository.findByNameContaining(name)
+                .stream()
+                .map(ProductConverter::toResponse)
+                .toList();
+    }
 }
