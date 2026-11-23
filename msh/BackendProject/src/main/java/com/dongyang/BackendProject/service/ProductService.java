@@ -1,13 +1,14 @@
 package com.dongyang.BackendProject.service;
 
-import com.dongyang.BackendProject.Controller.dto.ProductCreateRequest;
-import com.dongyang.BackendProject.Controller.dto.ProductResponse;
-import com.dongyang.BackendProject.Repository.ProductRepository;
+import com.dongyang.BackendProject.controller.dto.ProductCreateRequest;
+import com.dongyang.BackendProject.controller.dto.ProductResponse;
+import com.dongyang.BackendProject.repository.ProductRepository;
 import com.dongyang.BackendProject.converter.ProductConverter;
 import com.dongyang.BackendProject.entity.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
 
+    @Transactional
     public ProductResponse create(ProductCreateRequest request){
         if(request.name() == null || request.name().isBlank() ||
         request.price() == null || request.price() < 0 ||
@@ -57,5 +59,4 @@ public class ProductService {
                 .map(ProductConverter::toResponse)
                 .toList();
     }
-
 }

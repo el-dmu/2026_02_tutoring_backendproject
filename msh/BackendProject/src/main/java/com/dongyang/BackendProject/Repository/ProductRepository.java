@@ -1,4 +1,4 @@
-package com.dongyang.BackendProject.Repository;
+package com.dongyang.BackendProject.repository;
 
 import com.dongyang.BackendProject.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package com.dongyang.BackendProject.Controller;
+package com.dongyang.BackendProject.controller;
 
-import com.dongyang.BackendProject.Controller.dto.GreetingResponse;
+import com.dongyang.BackendProject.controller.dto.GreetingResponse;
 import com.dongyang.BackendProject.service.GreetingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

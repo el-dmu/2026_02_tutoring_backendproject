@@ -1,4 +1,4 @@
-package com.dongyang.BackendProject.Controller.dto;
+package com.dongyang.BackendProject.controller.dto;
 
 public record ProductCreateRequest(
         String name,

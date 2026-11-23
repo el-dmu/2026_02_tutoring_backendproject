@@ -1,3 +1,3 @@
-package com.dongyang.BackendProject.Controller.dto;
+package com.dongyang.BackendProject.controller.dto;
 
 public record GreetingResponse(String name, String message) {}

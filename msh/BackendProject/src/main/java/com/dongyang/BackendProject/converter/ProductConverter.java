@@ -1,7 +1,7 @@
 package com.dongyang.BackendProject.converter;
 
-import com.dongyang.BackendProject.Controller.dto.ProductCreateRequest;
-import com.dongyang.BackendProject.Controller.dto.ProductResponse;
+import com.dongyang.BackendProject.controller.dto.ProductCreateRequest;
+import com.dongyang.BackendProject.controller.dto.ProductResponse;
 import com.dongyang.BackendProject.entity.Product;
 
 public class ProductConverter {

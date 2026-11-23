@@ -1,7 +1,9 @@
-package com.dongyang.BackendProject.Controller;
+package com.dongyang.BackendProject.controller;
 
-import com.dongyang.BackendProject.Controller.dto.ProductCreateRequest;
-import com.dongyang.BackendProject.Controller.dto.ProductResponse;
+import com.dongyang.BackendProject.controller.dto.ProductCreateRequest;
+import com.dongyang.BackendProject.controller.dto.ProductResponse;
+import com.dongyang.BackendProject.exception.code.ProductSuccessCode;
+import com.dongyang.BackendProject.global.apiPayload.ApiResponse;
 import com.dongyang.BackendProject.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,29 +19,43 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<ProductResponse> create(
+    public ResponseEntity<ApiResponse<ProductResponse>> create(
             @RequestBody ProductCreateRequest request
     ) {
-       ProductResponse response = productService.create (request);
+       ProductResponse result = productService.create (request);
+       ProductSuccessCode code = ProductSuccessCode.CREATED;
 
-       return ResponseEntity.status(HttpStatus.CREATED)
-               .body(response);
+       return ResponseEntity.status(code.getStatus())
+               .body(ApiResponse.onSuccess(code, result));
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductResponse>> findAll() {
-        return ResponseEntity.ok(productService.findAll());
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> findAll() {
+        List<ProductResponse> result = productService.findAll();
+        ProductSuccessCode code = ProductSuccessCode.LIST_OK;
+        return ResponseEntity.status(code.getStatus())
+                .body(ApiResponse.onSuccess(code, result));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponse> findbyid(@PathVariable("id") Long id) {
-        ProductResponse response = productService.findById(id);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<ApiResponse<ProductResponse>> findById(
+            @PathVariable("id") Long id
+    ) {
+        ProductResponse result = productService.findById(id);
+        ProductSuccessCode code = ProductSuccessCode.DETAIL_OK;
+
+        return ResponseEntity.status(code.getStatus())
+                .body(ApiResponse.onSuccess(code, result));
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<ProductResponse>> search(@RequestParam("name") String name){
-        List<ProductResponse> responses = productService.search(name);
-        return ResponseEntity.ok(responses);
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> search(
+            @RequestParam("name") String name
+    ){
+        List<ProductResponse> result = productService.search(name);
+        ProductSuccessCode code = ProductSuccessCode.SEARCH_OK;
+
+        return ResponseEntity.status(code.getStatus())
+                .body(ApiResponse.onSuccess(code, result));
     }
 }
